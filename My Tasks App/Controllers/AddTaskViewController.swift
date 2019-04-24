@@ -9,24 +9,23 @@
 import UIKit
 
 class AddTaskViewController: UIViewController {
-
+    //Outlets
     @IBOutlet weak var taskDatePicker: UIDatePicker!
     @IBOutlet weak var taskDescTxt: UITextField!
     @IBOutlet weak var taskNameTxt: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-    
+    // save new task after press done
     @IBAction func doneBtnTapped(_ sender: Any) {
         let task = Tasks(context: CoreDataHandler.getCoreDataobject())
         task.taskName = taskNameTxt.text ?? "No name"
         task.taskDesc = taskDescTxt.text ?? "No desc"
-        task.taskDate = taskDatePicker.date 
-        
+        task.taskDate = taskDatePicker.date
         CoreDataHandler.saveIntoCoreData(taskItem: task)
-    self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

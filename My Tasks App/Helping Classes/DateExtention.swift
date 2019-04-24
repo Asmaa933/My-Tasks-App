@@ -7,6 +7,7 @@
 //
 
 import Foundation
+// to convert Date to String
 extension Date {
     func convertDateToString(format : String) -> String {
         let dateFormatter = DateFormatter()

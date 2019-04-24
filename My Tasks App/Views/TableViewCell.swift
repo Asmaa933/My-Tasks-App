@@ -9,11 +9,9 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+// Outlets
     @IBOutlet weak var taskNameLabel: UILabel!
-    
     @IBOutlet weak var taskDescLabel: UILabel!
-    
     @IBOutlet weak var taskDateLabel: UILabel!
   
     override func awakeFromNib() {
@@ -26,11 +24,10 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    // configure cell elements 
     func configureCell(task: Tasks){
         taskNameLabel.text = task.taskName
         taskDescLabel.text = task.taskDesc
-        
-
         taskDateLabel.text = task.taskDate?.convertDateToString(format: dateFormat)
         
     }

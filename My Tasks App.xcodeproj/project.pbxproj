@@ -70,13 +70,13 @@
 			children = (
 				723C96102267664E00B04343 /* AppDelegate.swift */,
 				728210272268060D004BE4CE /* Controllers */,
+				727157BA226F928100602883 /* Views */,
+				727157B9226F926100602883 /* Helping Classes */,
 				723C96142267664E00B04343 /* Main.storyboard */,
 				723C961A2267665100B04343 /* Assets.xcassets */,
 				723C961C2267665100B04343 /* LaunchScreen.storyboard */,
 				723C961F2267665100B04343 /* Info.plist */,
 				723C96172267664E00B04343 /* My_Tasks_App.xcdatamodeld */,
-				727157B9226F926100602883 /* Helping Classes */,
-				727157BA226F928100602883 /* Views */,
 			);
 			path = "My Tasks App";
 			sourceTree = "<group>";
