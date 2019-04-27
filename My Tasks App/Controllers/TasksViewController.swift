@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TasksViewController: UIViewController {
     //outlets
@@ -15,10 +16,22 @@ class TasksViewController: UIViewController {
     var savedTasks = [Tasks]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        // request notification permission from user
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound,.badge,.alert]) { (approved,error) in
+            
+            if approved{
+                print("Approved")
+                
+            }else {
+                print("User doesn't allow")
+            }
+            
+        }
         // remove  lines not used from table view
         tasksTable.tableFooterView = UIView()
         // Do any additional setup after loading the view, typically from a nib.
         updateUI()
+        
     }
     // configure cell in UI
     func updateUI() {
@@ -31,7 +44,7 @@ class TasksViewController: UIViewController {
         savedTasks = CoreDataHandler.getDataFromCoreData() ?? []
         tasksTable.reloadData()
     }
-    
+  
     @IBAction func searhBtnTapped(_ sender: Any) {
         savedTasks = CoreDataHandler.getspecificItemFromCoreData(itemName: searchTxt.text ?? "")
         if savedTasks.isEmpty{
