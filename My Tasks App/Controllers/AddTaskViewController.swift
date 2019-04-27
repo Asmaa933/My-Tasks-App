@@ -29,6 +29,7 @@ class AddTaskViewController: UIViewController {
         task.taskName = taskNameTxt.text ?? "No name"
         task.taskDesc = taskDescTxt.text ?? "No desc"
         task.taskDate = taskDatePicker.date
+        giveAlertForTask()
         CoreDataHandler.saveIntoCoreData(taskItem: task)
         self.navigationController?.popViewController(animated: true)
     }
@@ -38,9 +39,9 @@ class AddTaskViewController: UIViewController {
         content.body = taskDescTxt.text ?? ""
         content.badge = 1
         content.sound = .default
-        let dateComponents = taskDatePicker.calendar.dateComponents([.day,.month,.year], from: taskDatePicker.date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        
+  //     let dateComponents = taskDatePicker.calendar.dateComponents([.day,.month,.year], from: taskDatePicker.date)
+       // let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: "N1", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { (error) in

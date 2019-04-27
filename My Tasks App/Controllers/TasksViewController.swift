@@ -25,7 +25,6 @@ class TasksViewController: UIViewController {
             }else {
                 print("User doesn't allow")
             }
-            
         }
         // remove  lines not used from table view
         tasksTable.tableFooterView = UIView()
